@@ -1,0 +1,342 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+
+:root{
+  --sakura:#e88ba8;
+  --sakura-soft:#fcebf1;
+  --sakura-pale:#fff7fa;
+  --sakura-deep:#b84f72;
+  --wine:#8e3d59;
+  --ink:#29252a;
+  --muted:#756e74;
+  --bg:#faf8f9;
+  --white:#fff;
+  --clinical:#76b89b;
+  --danger:#d86c78;
+  --border:#eee4e9;
+  --shadow:0 14px 40px rgba(67,36,48,.08);
+  --shadow-sm:0 6px 20px rgba(67,36,48,.06);
+  --radius:18px;
+  --radius-sm:12px;
+  --transition:180ms ease;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans','Segoe UI',Arial,sans-serif !important;
+  color:var(--ink) !important;
+  background:
+    radial-gradient(circle at 100% 0, rgba(232,139,168,.10), transparent 28rem),
+    radial-gradient(circle at 0 100%, rgba(118,184,155,.07), transparent 24rem),
+    var(--bg) !important;
+}
+h1,h2,h3,h4,strong,.marca,.page-title h2,.login-header h2{
+  font-family:'Manrope','DM Sans','Segoe UI',sans-serif !important;
+}
+button,input,select,textarea{font-family:inherit !important}
+button{transition:transform var(--transition),box-shadow var(--transition),background var(--transition),border-color var(--transition)!important}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{
+  outline:3px solid rgba(232,139,168,.28)!important;
+  outline-offset:2px!important;
+}
+
+/* ---------- reusable logo treatment ---------- */
+.logo-icon,.logo-grande,.icone,.logo,.recurso-icon{
+  position:relative;
+}
+.logo-icon::before,.logo-grande::before,.icone::before,.logo::before,.recurso-icon::before{
+  content:'✚';
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--wine);
+  font-weight:800;
+}
+.logo-icon,.logo-grande{font-size:0!important}
+.logo-icon::before,.logo-grande::before{font-size:24px}
+.recurso-icon{font-size:0!important}
+.recurso-icon::before{font-size:14px}
+.icone::before{font-size:24px}
+.logo::before{font-size:24px}
+
+
+.logo-icon,.logo-grande{
+  background-image:url("../img/sentinela-logo.svg")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:contain!important;
+}
+.logo-icon::before,.logo-grande::before{display:none!important}
+.cabecalho .icone,.topo .logo{
+  background-image:url("../img/sentinela-logo.svg")!important;
+  background-repeat:no-repeat!important;
+  background-position:center!important;
+  background-size:58%!important;
+}
+.cabecalho .icone::before,.topo .logo::before{display:none!important}
+.sentinela-mark{
+  background-image:url("../img/sentinela-logo.svg");
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:78%;
+  font-size:0;
+}
+
+/* ---------- application shell / sidebar ---------- */
+body.app-page{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:244px minmax(0,1fr);
+  align-items:stretch;
+  background:
+    radial-gradient(circle at 85% 0, rgba(232,139,168,.11), transparent 30rem),
+    var(--bg)!important;
+}
+.sentinela-sidebar{
+  position:sticky;
+  top:0;
+  height:100vh;
+  z-index:50;
+  padding:24px 16px;
+  display:flex;
+  flex-direction:column;
+  background:rgba(255,255,255,.90);
+  backdrop-filter:blur(18px);
+  border-right:1px solid var(--border);
+}
+.sentinela-brand{
+  display:flex;align-items:center;gap:11px;
+  padding:5px 9px 26px;
+}
+.sentinela-mark{
+  width:40px;height:40px;flex:0 0 40px;
+  border-radius:13px;
+  display:grid;place-items:center;
+  color:#fff;
+  background:linear-gradient(145deg,var(--sakura),var(--wine));
+  box-shadow:0 8px 18px rgba(184,79,114,.20);
+  font-size:20px;font-weight:800;
+}
+.sentinela-brand strong{display:block;font:800 16px/1 'Manrope',sans-serif;letter-spacing:-.3px}
+.sentinela-brand span{display:block;margin-top:5px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.sentinela-nav{display:flex;flex-direction:column;gap:5px}
+.sentinela-nav a{
+  display:flex;align-items:center;gap:11px;
+  min-height:44px;padding:0 12px;
+  border-radius:12px;
+  color:var(--muted)!important;
+  text-decoration:none!important;
+  font-size:13px;font-weight:600;
+  transition:all var(--transition);
+}
+.sentinela-nav a:hover{background:var(--sakura-pale);color:var(--wine)!important;transform:translateX(2px)}
+.sentinela-nav a.active{background:var(--sakura-soft);color:var(--wine)!important;box-shadow:inset 3px 0 0 var(--sakura)}
+.sentinela-nav .nav-icon{width:20px;text-align:center;font-size:15px}
+.sentinela-side-footer{margin-top:auto;padding:15px 10px 4px;color:#a29aa0;font-size:10px;line-height:1.5;border-top:1px solid var(--border)}
+body.app-page > .container,
+body.app-page > .dashboard,
+body.app-page > .topo,
+body.app-page > .formulario,
+body.app-page > header{
+  grid-column:2;
+}
+body.app-page > .container{width:auto!important;max-width:1180px!important;margin:0 auto!important;padding:30px 34px 50px!important}
+body.app-page > .topo{
+  margin:24px 34px 0!important;
+  border-radius:20px!important;
+}
+body.app-page > .dashboard{padding:0 34px 40px!important;max-width:1250px;margin:0 auto;width:100%;box-sizing:border-box}
+body.app-page > .formulario{max-width:850px!important;margin:30px auto!important}
+body.app-page > header:not(.topo){margin:24px 34px 0!important}
+
+/* ---------- global panels/cards ---------- */
+.card,.secao,.paciente-selecionado,.barra,.lista > .card{
+  border-color:var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.card{border-radius:var(--radius)!important}
+.card:hover{transform:translateY(-2px)!important;box-shadow:0 18px 46px rgba(67,36,48,.10)!important}
+.card::before{background:linear-gradient(180deg,var(--sakura),var(--wine))!important}
+label{color:#5f575d!important}
+input,select,textarea{
+  color:var(--ink)!important;
+  background:#fff!important;
+  border-color:var(--border)!important;
+  border-radius:11px!important;
+  box-shadow:none!important;
+}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--sakura)!important;
+  box-shadow:0 0 0 4px rgba(232,139,168,.12)!important;
+}
+button,.botao-principal,.btn-save,.botao-login{
+  border-radius:11px!important;
+  background:linear-gradient(135deg,var(--sakura-deep),var(--wine))!important;
+  color:#fff!important;
+  box-shadow:0 8px 20px rgba(142,61,89,.16)!important;
+}
+button:hover,.botao-principal:hover,.btn-save:hover,.botao-login:hover{
+  transform:translateY(-1px)!important;
+  box-shadow:0 12px 25px rgba(142,61,89,.20)!important;
+}
+.status{
+  background:var(--sakura-soft)!important;
+  color:var(--wine)!important;
+  border-color:#f3d5df!important;
+}
+footer{color:#948b91!important}
+
+/* ---------- login ---------- */
+.login-wrapper{
+  min-height:100vh!important;
+  background:
+    radial-gradient(circle at 12% 10%,rgba(232,139,168,.16),transparent 28%),
+    radial-gradient(circle at 90% 90%,rgba(118,184,155,.11),transparent 25%),
+    var(--bg)!important;
+}
+.painel-esquerdo{
+  background:
+    linear-gradient(145deg,rgba(142,61,89,.97),rgba(184,79,114,.94)),
+    var(--wine)!important;
+}
+.logo-grande{
+  background:rgba(255,255,255,.14)!important;
+  border-color:rgba(255,255,255,.22)!important;
+  box-shadow:0 12px 30px rgba(62,20,34,.18)!important;
+}
+.logo-grande::before{color:#fff}
+.painel-esquerdo h1{letter-spacing:-1.5px!important}
+.painel-esquerdo h1 span{color:#f9c4d4!important}
+.recurso{border-color:rgba(255,255,255,.15)!important;background:rgba(255,255,255,.08)!important}
+.recurso-icon{background:rgba(255,255,255,.14)!important}
+.painel-login{
+  background:rgba(255,255,255,.92)!important;
+  box-shadow:-15px 0 50px rgba(67,36,48,.06)!important;
+}
+.login-header h2{color:var(--ink)!important}
+.login-header p,.descricao{color:var(--muted)!important}
+.input-wrapper{border-color:var(--border)!important;background:#fff!important}
+.input-wrapper:focus-within{border-color:var(--sakura)!important;box-shadow:0 0 0 4px rgba(232,139,168,.12)!important}
+.input-icon{color:var(--wine)!important}
+
+/* ---------- attendance ---------- */
+.cabecalho,.topo,body.app-page > header{
+  background:linear-gradient(135deg,#fff,#fff8fa)!important;
+  color:var(--ink)!important;
+  border:1px solid var(--border)!important;
+  box-shadow:var(--shadow)!important;
+}
+.cabecalho .icone,.topo .logo,body.app-page > header .logo{
+  background:var(--sakura-soft)!important;
+  border:1px solid #f3d5df!important;
+  color:var(--wine)!important;
+}
+.cabecalho .icone::before,.topo .logo::before,body.app-page > header .logo::before{color:var(--wine)}
+.marca,.topo-texto .marca{color:var(--wine)!important}
+.subtitulo,.topo-texto p{color:var(--muted)!important}
+.titulo-formulario h2,.introducao h2,.page-title h2{color:var(--ink)!important}
+.titulo-formulario p,.introducao p,.page-title p{color:var(--muted)!important}
+.secao{background:#fff!important}
+.secao h3{color:var(--wine)!important}
+.opcao-responsavel label,.alta-option label{border-color:var(--border)!important;background:#fff!important}
+.opcao-responsavel input:checked+label,.alta-option input:checked+label{border-color:var(--sakura)!important;background:var(--sakura-pale)!important;box-shadow:0 0 0 2px rgba(232,139,168,.08)!important}
+.aviso{background:#fff9fb!important;border-color:#f2dce4!important;color:#6d4a58!important}
+.aviso-icon{color:var(--wine)!important}
+.alerta-critico{border-color:#f1cbd1!important}
+.resultado{border:1px solid var(--border)!important;background:#fff!important}
+.mensagem{border-radius:11px!important}
+.voltar{background:#fff!important;color:var(--wine)!important;border:1px solid var(--border)!important;box-shadow:none!important}
+
+/* ---------- doctor dashboard ---------- */
+.card-header{border-bottom-color:var(--border)!important}
+.card-header h2{color:var(--ink)!important}
+.card-header p{color:var(--muted)!important}
+.contador{background:var(--sakura-soft)!important;color:var(--wine)!important}
+.alta-icon,.chamada-icon,.alta-card .card-header .alta-icon,.chamada-card .card-header .chamada-icon{background:var(--sakura-soft)!important;color:var(--wine)!important}
+.paciente-card{border-color:var(--border)!important;background:#fff!important}
+.paciente-card:hover{border-color:#e8bccb!important}
+.risco.verde{background:#eaf7f0!important;color:#3f8063!important}
+.risco.amarelo{background:#fff5db!important;color:#856c26!important}
+.risco.vermelho{background:#fcecee!important;color:#a14c59!important}
+.alerta-alergia{background:#fff8f9!important;border-color:#f2d4dc!important;color:#8e3d59!important}
+.btn{border-color:var(--border)!important;background:#fff!important;color:var(--wine)!important;box-shadow:none!important}
+.btn-atender{background:var(--sakura-soft)!important;color:var(--wine)!important;border-color:#f3d5df!important}
+.select-alta{background:#fff!important}
+
+/* ---------- medications ---------- */
+body.app-page .barra{
+  background:#fff!important;border:1px solid var(--border)!important;
+}
+.icone-info,.avatar,.dado-icone,.sem-dados .icone-vazio{
+  background:var(--sakura-soft)!important;color:var(--wine)!important;
+}
+.medicacao{background:linear-gradient(135deg,#fff7fa,#fff)!important;border-color:#f1dce4!important}
+.medicacao .dado-icone{background:#f9e3eb!important}
+.sem-dados,.loading{border-color:var(--border)!important;box-shadow:var(--shadow-sm)!important}
+.spinner{border-color:#f0dce4!important;border-top-color:var(--sakura-deep)!important}
+.erro{background:#fff7f8!important;border-color:#f1ccd3!important;color:#9b4b58!important}
+
+/* ---------- discharge ---------- */
+.patient-highlight{background:linear-gradient(135deg,#fff7fa,#fff)!important;border-color:#f0dce4!important}
+.patient-avatar{background:linear-gradient(145deg,var(--sakura),var(--wine))!important}
+.card-title{border-bottom-color:var(--border)!important}
+.card-title-icon{background:var(--sakura-soft)!important;color:var(--wine)!important}
+.resumo-box{background:#fff8fb!important;border-left-color:var(--sakura)!important;color:#6d5c63!important}
+.btn-secondary,.btn-print,.btn-pdf{background:#fff!important;color:var(--wine)!important;border-color:var(--border)!important;box-shadow:none!important}
+.btn-pdf{background:#edf8f2!important;color:#4d8a6e!important;border-color:#d3ebdd!important}
+.btn-print{background:var(--sakura-soft)!important}
+.toast{background:var(--clinical)!important}
+
+/* ---------- TV: premium clinical display ---------- */
+body:has(.tela){
+  background:#21151b!important;
+}
+.tela{
+  background:
+    radial-gradient(circle at 75% 15%,rgba(232,139,168,.18),transparent 25%),
+    linear-gradient(145deg,#26181f,#3a202c)!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+}
+.tela::before{background:radial-gradient(circle,rgba(232,139,168,.12),transparent 65%)!important}
+.logo-icon{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.14)!important}
+.logo-icon::before{color:#ffd4e0}
+.logo-texto strong{letter-spacing:.04em!important}
+.status-chamada{color:#f8c4d3!important}
+.status-chamada .ponto{background:var(--clinical)!important;box-shadow:0 0 0 5px rgba(118,184,155,.12)!important}
+.icone{background:rgba(232,139,168,.13)!important;border-color:rgba(255,255,255,.12)!important}
+.icone::before{color:#ffd4e0}
+.info{background:rgba(255,255,255,.08)!important;border-color:rgba(255,255,255,.12)!important}
+.info::before{background:rgba(232,139,168,.10)!important}
+
+/* ---------- responsive sidebar ---------- */
+@media(max-width:900px){
+  body.app-page{display:block!important}
+  .sentinela-sidebar{
+    position:sticky;height:auto;min-height:0;
+    padding:10px 12px;
+    border-right:0;border-bottom:1px solid var(--border);
+    flex-direction:row;align-items:center;gap:10px;
+  }
+  .sentinela-brand{padding:4px 7px;flex:0 0 auto}
+  .sentinela-brand span,.sentinela-side-footer{display:none}
+  .sentinela-nav{flex:1;flex-direction:row;justify-content:flex-end;overflow:auto}
+  .sentinela-nav a{min-height:38px;padding:0 9px}
+  .sentinela-nav a span:not(.nav-icon){display:none}
+  body.app-page > .container,
+  body.app-page > .dashboard,
+  body.app-page > .topo,
+  body.app-page > .formulario,
+  body.app-page > header{margin-left:auto!important;margin-right:auto!important;grid-column:auto}
+  body.app-page > .container{padding:22px 16px 40px!important}
+  body.app-page > .topo{margin:16px!important}
+  body.app-page > .dashboard{padding:0 16px 35px!important}
+  body.app-page > .formulario{margin:22px 16px!important}
+}
+@media(max-width:560px){
+  .sentinela-sidebar{overflow:hidden}
+  .sentinela-brand strong{font-size:14px}
+  .sentinela-nav{gap:2px}
+  .sentinela-nav a{padding:0 7px}
+  body.app-page > .container{padding:16px 12px 30px!important}
+  body.app-page > .dashboard{padding:0 12px 30px!important}
+}
