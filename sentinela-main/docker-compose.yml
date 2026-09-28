@@ -1,0 +1,14 @@
+services:
+ 
+  app:
+    build: .
+    container_name: sentinela-medici
+    ports:
+      - "3010:3002"
+    volumes:
+      - sentinela-medici:/app/backend/data
+ 
+volumes:
+ 
+  dados_painel:
+
