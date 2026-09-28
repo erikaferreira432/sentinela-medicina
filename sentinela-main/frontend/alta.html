@@ -2,12 +2,21 @@
 <html lang="pt-BR">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SENTINELA | Alta</title>
+  <title>SENTINELA | Alta Hospitalar</title>
+
+  <link rel="stylesheet" href="css/sentinela.css">
+  <link rel="icon" type="image/svg+xml" href="img/sentinela-logo.svg">
 
   <style>
+
+    /* =====================================================
+       SENTINELA — SAKURA CLINICAL
+       Alta Hospitalar
+    ===================================================== */
 
     * {
       margin: 0;
@@ -17,41 +26,131 @@
     }
 
     :root {
-      --azul: #0b5ed7;
-      --azul-escuro: #073b88;
-      --azul-claro: #eaf3ff;
-      --ciano: #14b8d4;
-      --verde: #16a36a;
-      --vermelho: #dc3545;
-      --fundo: #f4f8fc;
-      --branco: #ffffff;
-      --texto: #243447;
-      --cinza: #6b7c93;
-      --borda: #dce6f0;
+
+      /* Sakura */
+      --sakura: #d96b91;
+      --sakura-light: #f9dfe8;
+      --sakura-soft: #fff5f8;
+      --sakura-hover: #c9587e;
+      --sakura-dark: #8f3f5b;
+      --rose-deep: #6f3047;
+
+      /* Medical */
+      --medical-green: #218a68;
+      --medical-green-soft: #eaf8f3;
+
+      --warning: #a87516;
+      --warning-soft: #fff8e8;
+
+      --danger: #c84d5c;
+      --danger-soft: #fff0f2;
+
+      /* Neutral */
+      --background: #faf8f9;
+      --white: #ffffff;
+      --text: #29252a;
+      --text-soft: #6f686d;
+      --text-light: #918990;
+
+      --border: #eadfe4;
+      --border-light: #f1e8ec;
+
+      --shadow:
+        0 10px 30px rgba(111, 48, 71, .07);
+
+      --shadow-hover:
+        0 14px 35px rgba(111, 48, 71, .12);
     }
 
+
+    /* =====================================================
+       BODY
+    ===================================================== */
 
     body {
+
       min-height: 100vh;
-      background: var(--fundo);
-      color: var(--texto);
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          rgba(217,107,145,.08),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 5% 45%,
+          rgba(249,223,232,.25),
+          transparent 28%
+        ),
+        var(--background);
+
+      color: var(--text);
+
+      position: relative;
+
     }
 
 
-    /* =========================
+    /* Pequenos detalhes Sakura */
+
+    body::before {
+
+      content: "✿";
+
+      position: fixed;
+
+      top: 95px;
+      right: 28px;
+
+      font-size: 80px;
+
+      color: rgba(217,107,145,.055);
+
+      transform: rotate(15deg);
+
+      pointer-events: none;
+
+      z-index: 0;
+
+    }
+
+
+    body::after {
+
+      content: "✿";
+
+      position: fixed;
+
+      bottom: 70px;
+      left: 20px;
+
+      font-size: 65px;
+
+      color: rgba(143,63,91,.035);
+
+      transform: rotate(-20deg);
+
+      pointer-events: none;
+
+      z-index: 0;
+
+    }
+
+
+    /* =====================================================
        HEADER
-    ========================= */
+    ===================================================== */
 
     header {
 
-      height: 75px;
+      height: 78px;
 
       background:
         linear-gradient(
           135deg,
-          var(--azul-escuro),
-          var(--azul),
-          #087fae
+          #6f3047 0%,
+          #8f3f5b 45%,
+          #c9587e 100%
         );
 
       color: white;
@@ -65,8 +164,39 @@
       padding: 0 35px;
 
       box-shadow:
-        0 4px 15px
-        rgba(7, 59, 136, 0.20);
+        0 6px 22px rgba(111,48,71,.20);
+
+      position: relative;
+
+      overflow: hidden;
+
+      z-index: 2;
+
+    }
+
+
+    header::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 280px;
+      height: 280px;
+
+      right: -100px;
+      top: -170px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(255,255,255,.13);
+
+      box-shadow:
+        0 0 0 25px rgba(255,255,255,.025),
+        0 0 0 50px rgba(255,255,255,.02);
+
     }
 
 
@@ -77,32 +207,51 @@
       align-items: center;
 
       gap: 13px;
+
+      position: relative;
+
+      z-index: 2;
+
     }
 
 
     .logo-icon {
 
-      width: 43px;
-      height: 43px;
+      width: 44px;
+      height: 44px;
 
-      border-radius: 13px;
+      border-radius: 14px;
 
       background:
-        rgba(255,255,255,0.16);
+        rgba(255,255,255,.13);
+
+      border:
+        1px solid
+        rgba(255,255,255,.25);
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      font-size: 24px;
+      font-size: 23px;
 
-      font-weight: bold;
+      position: relative;
 
-      border:
-        1px solid
-        rgba(255,255,255,0.3);
+      box-shadow:
+        0 5px 15px rgba(0,0,0,.08);
+
+    }
+
+
+    .logo-icon::before {
+
+      content: "✿";
+
+      color: white;
+
+      font-size: 20px;
+
     }
 
 
@@ -110,7 +259,10 @@
 
       font-size: 21px;
 
-      letter-spacing: .5px;
+      letter-spacing: 1px;
+
+      font-weight: 800;
+
     }
 
 
@@ -120,9 +272,10 @@
 
       font-size: 11px;
 
-      opacity: .8;
+      opacity: .78;
 
       margin-top: 2px;
+
     }
 
 
@@ -132,71 +285,120 @@
 
       align-items: center;
 
-      gap: 15px;
+      gap: 14px;
 
-      font-size: 14px;
+      font-size: 13px;
+
+      position: relative;
+
+      z-index: 2;
+
     }
 
 
     .status {
 
       background:
-        rgba(255,255,255,.14);
+        rgba(255,255,255,.13);
 
       padding:
         9px 14px;
 
-      border-radius: 20px;
+      border-radius: 30px;
 
       border:
         1px solid
-        rgba(255,255,255,.2);
+        rgba(255,255,255,.20);
+
+      backdrop-filter: blur(8px);
+
     }
 
 
-    /* =========================
+    /* =====================================================
        CONTAINER
-    ========================= */
+    ===================================================== */
 
     .container {
 
       max-width: 1250px;
 
-      margin: 35px auto;
+      margin: 34px auto;
 
       padding: 0 25px;
+
+      position: relative;
+
+      z-index: 1;
+
     }
 
 
+    /* =====================================================
+       PAGE TITLE
+    ===================================================== */
+
     .page-title {
 
-      margin-bottom: 20px;
+      margin-bottom: 22px;
+
+      position: relative;
+
     }
 
 
     .page-title h2 {
 
-      font-size: 28px;
+      font-size: 29px;
 
-      color:
-        var(--azul-escuro);
+      color: var(--sakura-dark);
 
-      margin-bottom: 6px;
+      margin-bottom: 7px;
+
+      font-weight: 800;
+
+      letter-spacing: -.4px;
+
     }
 
 
     .page-title p {
 
-      color:
-        var(--cinza);
+      color: var(--text-soft);
 
       font-size: 14px;
+
     }
 
 
-    /* =========================
+    /* pequena linha decorativa */
+
+    .page-title::after {
+
+      content: "";
+
+      display: block;
+
+      width: 54px;
+      height: 3px;
+
+      margin-top: 13px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--sakura),
+          var(--sakura-light)
+        );
+
+    }
+
+
+    /* =====================================================
        PACIENTE SELECIONADO
-    ========================= */
+    ===================================================== */
 
     .paciente-selecionado {
 
@@ -205,18 +407,18 @@
       background:
         linear-gradient(
           135deg,
-          var(--azul-escuro),
-          var(--azul),
-          #087fae
+          #6f3047,
+          #8f3f5b 50%,
+          #c9587e
         );
 
       color: white;
 
-      border-radius: 18px;
+      border-radius: 20px;
 
-      padding: 22px 25px;
+      padding: 23px 25px;
 
-      margin-bottom: 25px;
+      margin-bottom: 24px;
 
       display: flex;
 
@@ -227,8 +429,28 @@
       overflow: hidden;
 
       box-shadow:
-        0 10px 25px
-        rgba(7,59,136,.16);
+        0 14px 32px
+        rgba(111,48,71,.18);
+
+    }
+
+
+    .paciente-selecionado::before {
+
+      content: "✿";
+
+      position: absolute;
+
+      right: 80px;
+      bottom: -25px;
+
+      font-size: 130px;
+
+      color:
+        rgba(255,255,255,.055);
+
+      transform: rotate(-15deg);
+
     }
 
 
@@ -238,16 +460,21 @@
 
       position: absolute;
 
-      width: 180px;
-      height: 180px;
+      width: 190px;
+      height: 190px;
 
-      right: -70px;
-      top: -90px;
+      right: -75px;
+      top: -100px;
 
       border-radius: 50%;
 
       background:
         rgba(255,255,255,.08);
+
+      border:
+        1px solid
+        rgba(255,255,255,.10);
+
     }
 
 
@@ -265,21 +492,25 @@
       border-radius: 50%;
 
       background:
-        rgba(255,255,255,.16);
+        rgba(255,255,255,.14);
 
       border:
         1px solid
-        rgba(255,255,255,.3);
+        rgba(255,255,255,.30);
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      font-size: 22px;
+      font-size: 21px;
 
       font-weight: 800;
+
+      box-shadow:
+        inset 0 0 0 5px
+        rgba(255,255,255,.025);
+
     }
 
 
@@ -288,6 +519,7 @@
       position: relative;
 
       z-index: 2;
+
     }
 
 
@@ -295,15 +527,16 @@
 
       display: block;
 
-      font-size: 11px;
+      font-size: 10px;
 
       text-transform: uppercase;
 
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
 
-      opacity: .8;
+      opacity: .72;
 
-      margin-bottom: 4px;
+      margin-bottom: 5px;
+
     }
 
 
@@ -312,6 +545,9 @@
       font-size: 22px;
 
       margin-bottom: 5px;
+
+      font-weight: 750;
+
     }
 
 
@@ -319,34 +555,57 @@
 
       font-size: 12px;
 
-      opacity: .85;
+      opacity: .80;
+
     }
 
 
-    /* =========================
+    /* =====================================================
        CARDS
-    ========================= */
+    ===================================================== */
 
     .card {
 
       background:
-        var(--branco);
+        rgba(255,255,255,.96);
 
       border-radius: 18px;
 
       padding: 25px;
 
-      margin-bottom: 22px;
+      margin-bottom: 21px;
 
       border:
         1px solid
-        var(--borda);
+        var(--border);
 
       box-shadow:
-        0 8px 25px
-        rgba(30, 80, 130, 0.07);
+        var(--shadow);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
+
     }
 
+
+    .card:hover {
+
+      transform: translateY(-1px);
+
+      box-shadow:
+        var(--shadow-hover);
+
+      border-color:
+        #e5cdd6;
+
+    }
+
+
+    /* =====================================================
+       CARD TITLE
+    ===================================================== */
 
     .card-title {
 
@@ -362,30 +621,43 @@
 
       border-bottom:
         1px solid
-        var(--borda);
+        var(--border-light);
+
     }
 
 
     .card-title-icon {
 
-      width: 38px;
-      height: 38px;
+      width: 39px;
+      height: 39px;
 
-      border-radius: 11px;
+      border-radius: 12px;
 
       background:
-        var(--azul-claro);
+        linear-gradient(
+          135deg,
+          var(--sakura-soft),
+          var(--sakura-light)
+        );
 
       color:
-        var(--azul);
+        var(--sakura-dark);
 
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      font-size: 18px;
+      font-size: 17px;
+
+      border:
+        1px solid
+        #f1d3de;
+
+      box-shadow:
+        0 4px 10px
+        rgba(217,107,145,.07);
+
     }
 
 
@@ -394,24 +666,28 @@
       font-size: 17px;
 
       color:
-        var(--azul-escuro);
+        var(--sakura-dark);
+
+      font-weight: 750;
+
     }
 
 
     .card-title p {
 
       color:
-        var(--cinza);
+        var(--text-light);
 
       font-size: 12px;
 
       margin-top: 2px;
+
     }
 
 
-    /* =========================
+    /* =====================================================
        GRID
-    ========================= */
+    ===================================================== */
 
     .grid {
 
@@ -421,6 +697,7 @@
         repeat(2, 1fr);
 
       gap: 18px;
+
     }
 
 
@@ -432,6 +709,7 @@
         repeat(3, 1fr);
 
       gap: 18px;
+
     }
 
 
@@ -442,6 +720,7 @@
       flex-direction: column;
 
       gap: 7px;
+
     }
 
 
@@ -449,6 +728,7 @@
 
       grid-column:
         1 / -1;
+
     }
 
 
@@ -456,12 +736,17 @@
 
       font-size: 13px;
 
-      font-weight: 600;
+      font-weight: 650;
 
       color:
-        #40566d;
+        #4e454b;
+
     }
 
+
+    /* =====================================================
+       INPUTS
+    ===================================================== */
 
     input,
     select,
@@ -471,9 +756,9 @@
 
       border:
         1px solid
-        var(--borda);
+        var(--border);
 
-      border-radius: 10px;
+      border-radius: 11px;
 
       padding:
         12px 14px;
@@ -483,12 +768,36 @@
       font-size: 14px;
 
       color:
-        var(--texto);
+        var(--text);
 
       background:
-        #fbfdff;
+        #fffafb;
 
-      transition: .2s;
+      transition:
+        border .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        transform .2s ease;
+
+    }
+
+
+    input::placeholder,
+    textarea::placeholder {
+
+      color:
+        #aaa0a6;
+
+    }
+
+
+    input:hover,
+    select:hover,
+    textarea:hover {
+
+      border-color:
+        #dfc8d1;
+
     }
 
 
@@ -497,14 +806,24 @@
     textarea:focus {
 
       border-color:
-        var(--azul);
+        var(--sakura);
 
       box-shadow:
         0 0 0 3px
-        rgba(11,94,215,.10);
+        rgba(217,107,145,.11);
 
       background:
         white;
+
+    }
+
+
+    input:focus,
+    select:focus {
+
+      transform:
+        translateY(-1px);
+
     }
 
 
@@ -514,28 +833,29 @@
 
       min-height: 120px;
 
-      line-height: 1.5;
+      line-height: 1.55;
+
     }
 
 
-    /* =========================
-       IDENTIFICAÇÃO
-    ========================= */
+    /* =====================================================
+       IDENTIFICAÇÃO DO PACIENTE
+    ===================================================== */
 
     .patient-highlight {
 
       background:
         linear-gradient(
           135deg,
-          #f0f7ff,
-          #f8fcff
+          #fff6f9,
+          #fffafb
         );
 
       border:
         1px solid
-        #d8eaff;
+        #efd8e0;
 
-      border-radius: 14px;
+      border-radius: 15px;
 
       padding: 18px;
 
@@ -546,6 +866,28 @@
       gap: 15px;
 
       margin-bottom: 20px;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    .patient-highlight::after {
+
+      content: "✿";
+
+      position: absolute;
+
+      right: 18px;
+      bottom: -22px;
+
+      font-size: 75px;
+
+      color:
+        rgba(217,107,145,.055);
+
     }
 
 
@@ -559,8 +901,8 @@
       background:
         linear-gradient(
           135deg,
-          var(--azul),
-          var(--ciano)
+          var(--sakura),
+          var(--sakura-dark)
         );
 
       color: white;
@@ -568,40 +910,54 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
-      font-size: 21px;
+      font-size: 20px;
 
-      font-weight: bold;
+      font-weight: 800;
 
       flex-shrink: 0;
+
+      box-shadow:
+        0 7px 16px
+        rgba(217,107,145,.20);
+
     }
 
 
     .patient-info h4 {
 
       color:
-        var(--azul-escuro);
+        var(--sakura-dark);
 
       font-size: 16px;
 
-      margin-bottom: 3px;
+      margin-bottom: 4px;
+
     }
 
 
     .patient-info span {
 
       color:
-        var(--cinza);
+        var(--text-soft);
 
       font-size: 12px;
+
     }
 
 
-    /* =========================
+    .patient-info strong {
+
+      color:
+        #4d4449;
+
+    }
+
+
+    /* =====================================================
        TIPO DE ALTA
-    ========================= */
+    ===================================================== */
 
     .alta-options {
 
@@ -611,18 +967,23 @@
         repeat(3, 1fr);
 
       gap: 14px;
+
+      margin-top: 10px;
+
     }
 
 
     .alta-option {
 
       position: relative;
+
     }
 
 
     .alta-option input {
 
       display: none;
+
     }
 
 
@@ -632,17 +993,59 @@
 
       border:
         1px solid
-        var(--borda);
+        var(--border);
 
-      border-radius: 12px;
+      border-radius: 14px;
 
-      padding: 16px;
+      padding: 17px;
 
       cursor: pointer;
 
-      transition: .2s;
+      transition:
+        .2s ease;
 
-      background: white;
+      background:
+        white;
+
+      min-height: 105px;
+
+      position: relative;
+
+    }
+
+
+    .alta-option label::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      right: 14px;
+      top: 14px;
+
+      background:
+        #e7dce1;
+
+    }
+
+
+    .alta-option label:hover {
+
+      border-color:
+        #e1bdca;
+
+      transform:
+        translateY(-2px);
+
+      box-shadow:
+        0 7px 18px
+        rgba(111,48,71,.07);
+
     }
 
 
@@ -651,9 +1054,12 @@
       display: block;
 
       color:
-        var(--azul-escuro);
+        var(--sakura-dark);
 
-      margin-bottom: 5px;
+      margin-bottom: 7px;
+
+      font-size: 14px;
+
     }
 
 
@@ -662,168 +1068,91 @@
       font-size: 12px;
 
       color:
-        var(--cinza);
+        var(--text-soft);
 
       font-weight: normal;
+
+      line-height: 1.45;
+
     }
 
 
     .alta-option input:checked + label {
 
       border-color:
-        var(--azul);
-
-      background:
-        var(--azul-claro);
-
-      box-shadow:
-        0 0 0 2px
-        rgba(11,94,215,.08);
-    }
-
-
-    /* =========================
-       RESUMO
-    ========================= */
-
-    .resumo-box {
-
-      background:
-        #f8fbff;
-
-      border-left:
-        4px solid
-        var(--ciano);
-
-      padding:
-        16px 18px;
-
-      border-radius: 8px;
-
-      margin-top: 20px;
-
-      color:
-        #52677c;
-
-      font-size: 13px;
-
-      line-height: 1.6;
-    }
-
-
-    /* =========================
-       BOTÕES
-    ========================= */
-
-    .acoes {
-
-      display: flex;
-
-      justify-content: flex-end;
-
-      gap: 12px;
-
-      margin-top: 25px;
-
-      margin-bottom: 40px;
-    }
-
-
-    button {
-
-      border: none;
-
-      cursor: pointer;
-
-      border-radius: 10px;
-
-      padding:
-        13px 20px;
-
-      font-size: 14px;
-
-      font-weight: 600;
-
-      transition: .2s;
-
-      display: flex;
-
-      align-items: center;
-
-      gap: 8px;
-    }
-
-
-    button:hover {
-
-      transform:
-        translateY(-1px);
-    }
-
-
-    .btn-secondary {
-
-      background:
-        white;
-
-      color:
-        var(--azul-escuro);
-
-      border:
-        1px solid
-        var(--borda);
-    }
-
-
-    .btn-pdf {
-
-      background:
-        #eaf8f2;
-
-      color:
-        var(--verde);
-
-      border:
-        1px solid
-        #cceede;
-    }
-
-
-    .btn-print {
-
-      background:
-        #eef6ff;
-
-      color:
-        var(--azul);
-
-      border:
-        1px solid
-        #d6e8ff;
-    }
-
-
-    .btn-save {
+        var(--sakura);
 
       background:
         linear-gradient(
           135deg,
-          var(--azul),
-          var(--azul-escuro)
+          #fff5f8,
+          #fffafb
         );
 
-      color:
-        white;
-
       box-shadow:
-        0 5px 15px
-        rgba(11,94,215,.2);
+        0 0 0 3px
+        rgba(217,107,145,.08);
+
     }
 
 
-    /* =========================
+    .alta-option input:checked + label::after {
+
+      background:
+        var(--sakura);
+
+      box-shadow:
+        0 0 0 4px
+        rgba(217,107,145,.12);
+
+    }
+
+
+    /* =====================================================
+       RESUMO
+    ===================================================== */
+
+    .resumo-box {
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff7fa,
+          #fffafb
+        );
+
+      border-left:
+        4px solid
+        var(--sakura);
+
+      padding:
+        16px 18px;
+
+      border-radius: 9px;
+
+      margin-top: 20px;
+
+      color:
+        #655a60;
+
+      font-size: 13px;
+
+      line-height: 1.65;
+
+    }
+
+
+    .resumo-box strong {
+
+      color:
+        var(--sakura-dark);
+
+    }
+
+
+    /* =====================================================
        AVISO
-    ========================= */
+    ===================================================== */
 
     .aviso {
 
@@ -834,82 +1163,296 @@
       gap: 12px;
 
       background:
-        #fff9e8;
+        var(--warning-soft);
 
       border:
         1px solid
-        #f3e1a5;
+        #f1dfae;
 
       padding: 15px;
 
-      border-radius: 11px;
+      border-radius: 12px;
 
       color:
-        #725d1d;
+        #735e24;
 
       font-size: 12px;
 
-      line-height: 1.5;
+      line-height: 1.55;
+
+      box-shadow:
+        0 5px 15px
+        rgba(168,117,22,.04);
+
     }
 
 
     .aviso-icon {
 
-      font-size: 18px;
+      width: 27px;
+      height: 27px;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background:
+        rgba(168,117,22,.10);
+
+      flex-shrink: 0;
+
+      font-size: 15px;
+
     }
 
 
-    /* =========================
-       RODAPÉ
-    ========================= */
+    /* =====================================================
+       BOTÕES
+    ===================================================== */
+
+    .acoes {
+
+      display: flex;
+
+      justify-content: flex-end;
+
+      gap: 11px;
+
+      margin-top: 24px;
+
+      margin-bottom: 40px;
+
+      flex-wrap: wrap;
+
+    }
+
+
+    button {
+
+      border: none;
+
+      cursor: pointer;
+
+      border-radius: 11px;
+
+      padding:
+        13px 19px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 8px;
+
+    }
+
+
+    button:hover {
+
+      transform:
+        translateY(-2px);
+
+    }
+
+
+    button:active {
+
+      transform:
+        translateY(0);
+
+    }
+
+
+    .btn-secondary {
+
+      background:
+        white;
+
+      color:
+        var(--text-soft);
+
+      border:
+        1px solid
+        var(--border);
+
+    }
+
+
+    .btn-secondary:hover {
+
+      border-color:
+        #d8bec8;
+
+      color:
+        var(--sakura-dark);
+
+      box-shadow:
+        0 6px 15px
+        rgba(111,48,71,.07);
+
+    }
+
+
+    .btn-pdf {
+
+      background:
+        var(--medical-green-soft);
+
+      color:
+        var(--medical-green);
+
+      border:
+        1px solid
+        #cce9dd;
+
+    }
+
+
+    .btn-pdf:hover {
+
+      background:
+        #def3ea;
+
+      box-shadow:
+        0 7px 17px
+        rgba(33,138,104,.10);
+
+    }
+
+
+    .btn-print {
+
+      background:
+        #fff4f7;
+
+      color:
+        var(--sakura-dark);
+
+      border:
+        1px solid
+        #efd3dd;
+
+    }
+
+
+    .btn-print:hover {
+
+      background:
+        var(--sakura-light);
+
+      box-shadow:
+        0 7px 17px
+        rgba(217,107,145,.11);
+
+    }
+
+
+    .btn-save {
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--sakura),
+          var(--sakura-dark)
+        );
+
+      color:
+        white;
+
+      box-shadow:
+        0 7px 18px
+        rgba(143,63,91,.22);
+
+    }
+
+
+    .btn-save:hover {
+
+      box-shadow:
+        0 10px 23px
+        rgba(143,63,91,.30);
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
 
     footer {
 
       text-align: center;
 
       color:
-        #8495a7;
+        #958a90;
 
-      font-size: 12px;
+      font-size: 11px;
 
-      padding: 20px;
+      padding:
+        20px;
+
+      line-height: 1.7;
+
     }
 
 
-    /* =========================
+    /* =====================================================
        TOAST
-    ========================= */
+    ===================================================== */
 
     .toast {
 
       position: fixed;
 
       right: 25px;
-
       bottom: 25px;
 
       background:
-        var(--verde);
+        linear-gradient(
+          135deg,
+          var(--medical-green),
+          #176e55
+        );
 
       color: white;
 
       padding:
         14px 20px;
 
-      border-radius: 10px;
+      border-radius: 12px;
 
       box-shadow:
-        0 8px 25px
-        rgba(0,0,0,.15);
+        0 10px 28px
+        rgba(0,0,0,.16);
 
       transform:
         translateY(100px);
 
       opacity: 0;
 
-      transition: .3s;
+      transition:
+        .3s ease;
 
       z-index: 1000;
+
+      font-size: 13px;
+
+      font-weight: 600;
+
     }
 
 
@@ -919,12 +1462,26 @@
         translateY(0);
 
       opacity: 1;
+
     }
 
 
-    /* =========================
+    /* =====================================================
        RESPONSIVO
-    ========================= */
+    ===================================================== */
+
+    @media (max-width: 900px) {
+
+      .grid-3,
+      .alta-options {
+
+        grid-template-columns:
+          1fr 1fr;
+
+      }
+
+    }
+
 
     @media (max-width: 800px) {
 
@@ -932,12 +1489,16 @@
 
         padding:
           0 18px;
+
+        height: 70px;
+
       }
 
 
       .header-info {
 
         display: none;
+
       }
 
 
@@ -947,18 +1508,22 @@
 
         grid-template-columns:
           1fr;
+
       }
 
 
       .acoes {
 
-        flex-direction: column;
+        flex-direction:
+          column;
+
       }
 
 
       button {
 
-        justify-content: center;
+        width: 100%;
+
       }
 
 
@@ -969,6 +1534,18 @@
 
         margin-top:
           25px;
+
+      }
+
+
+      .card {
+
+        padding:
+          19px;
+
+        border-radius:
+          15px;
+
       }
 
 
@@ -976,132 +1553,345 @@
 
         padding:
           18px;
+
       }
 
 
       .paciente-selecionado-info h3 {
 
-        font-size: 18px;
+        font-size:
+          18px;
+
+      }
+
+
+      .page-title h2 {
+
+        font-size:
+          24px;
+
       }
 
     }
 
 
-    /* =========================
-       IMPRESSÃO
-    ========================= */
+    @media (max-width: 480px) {
 
-    @media print {
+      .logo h1 {
 
-      body {
+        font-size:
+          18px;
 
-        background:
-          white;
       }
 
 
-      header {
+      .logo span {
 
-        background:
-          white !important;
-
-        color:
-          black;
-
-        box-shadow:
+        display:
           none;
 
-        border-bottom:
-          2px solid #ddd;
       }
 
 
       .logo-icon {
 
-        color:
-          black;
+        width:
+          40px;
 
-        border-color:
-          #ddd;
+        height:
+          40px;
+
       }
 
 
-      .header-info,
-      .acoes,
-      footer,
-      .aviso {
+      .paciente-avatar {
+
+        width:
+          53px;
+
+        height:
+          53px;
+
+      }
+
+
+      .paciente-selecionado {
+
+        gap:
+          12px;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       IMPRESSÃO / PDF
+    ===================================================== */
+
+    @page {
+
+      size: A4;
+
+      margin:
+        12mm 12mm 15mm 12mm;
+
+    }
+
+
+    @media print {
+
+      * {
+
+        -webkit-print-color-adjust:
+          exact !important;
+
+        print-color-adjust:
+          exact !important;
+
+      }
+
+
+      body {
+
+        background:
+          white !important;
+
+        color:
+          #222 !important;
+
+      }
+
+
+      body::before,
+      body::after {
 
         display:
           none !important;
+
+      }
+
+
+      /* Esconde navegação */
+
+      .sentinela-sidebar {
+
+        display:
+          none !important;
+
+      }
+
+
+      header {
+
+        height:
+          auto !important;
+
+        min-height:
+          65px;
+
+        padding:
+          12px 18px !important;
+
+        background:
+          #8f3f5b !important;
+
+        box-shadow:
+          none !important;
+
+        border-radius:
+          0 !important;
+
+      }
+
+
+      header::after {
+
+        display:
+          none !important;
+
+      }
+
+
+      .header-info {
+
+        display:
+          flex !important;
+
+        color:
+          white !important;
+
+      }
+
+
+      .status {
+
+        border:
+          1px solid
+          rgba(255,255,255,.35) !important;
+
       }
 
 
       .container {
 
         max-width:
-          100%;
+          100% !important;
 
         margin:
-          15px;
+          15px 0 !important;
 
         padding:
-          0;
+          0 !important;
+
+      }
+
+
+      .page-title {
+
+        margin-bottom:
+          14px !important;
+
+      }
+
+
+      .page-title h2 {
+
+        color:
+          #6f3047 !important;
+
+        font-size:
+          23px !important;
+
+      }
+
+
+      .page-title p {
+
+        color:
+          #666 !important;
+
       }
 
 
       .paciente-selecionado {
 
         color:
-          black;
+          white !important;
 
         background:
-          white;
-
-        border:
-          2px solid #ddd;
+          #8f3f5b !important;
 
         box-shadow:
-          none;
+          none !important;
+
+        border-radius:
+          10px !important;
+
+        padding:
+          14px 17px !important;
+
+        margin-bottom:
+          15px !important;
+
       }
 
 
+      .paciente-selecionado::before,
       .paciente-selecionado::after {
 
         display:
-          none;
+          none !important;
+
       }
 
 
       .paciente-avatar {
 
         color:
-          black;
+          white !important;
 
         background:
-          white;
+          #a94e70 !important;
 
         border:
-          1px solid #ccc;
-      }
+          1px solid
+          rgba(255,255,255,.45) !important;
 
-
-      .paciente-selecionado-info h3 {
-
-        color:
-          black;
       }
 
 
       .card {
 
         box-shadow:
-          none;
+          none !important;
 
         border:
-          1px solid #ccc;
+          1px solid
+          #ddd !important;
+
+        border-radius:
+          8px !important;
+
+        padding:
+          16px !important;
+
+        margin-bottom:
+          12px !important;
 
         break-inside:
           avoid;
+
+      }
+
+
+      .card-title {
+
+        margin-bottom:
+          13px !important;
+
+        padding-bottom:
+          9px !important;
+
+      }
+
+
+      .card-title-icon {
+
+        background:
+          #f9dfe8 !important;
+
+        color:
+          #6f3047 !important;
+
+      }
+
+
+      .card-title h3 {
+
+        color:
+          #6f3047 !important;
+
+      }
+
+
+      .patient-highlight {
+
+        background:
+          #fff7fa !important;
+
+        border:
+          1px solid
+          #ead2db !important;
+
+      }
+
+
+      .patient-highlight::after {
+
+        display:
+          none !important;
+
       }
 
 
@@ -1110,66 +1900,195 @@
       textarea {
 
         border:
-          none;
+          1px solid
+          #ddd !important;
 
         background:
-          white;
+          white !important;
 
-        padding-left:
-          0;
+        color:
+          #222 !important;
+
+        box-shadow:
+          none !important;
+
       }
 
 
       textarea {
 
         min-height:
-          80px;
+          75px !important;
+
       }
 
 
-      .page-title h2 {
+      .alta-option label {
 
-        color:
-          black;
+        background:
+          white !important;
+
+        border:
+          1px solid
+          #ddd !important;
+
+      }
+
+
+      .alta-option input:checked + label {
+
+        border:
+          2px solid
+          #8f3f5b !important;
+
+        background:
+          #fff7fa !important;
+
+      }
+
+
+      .resumo-box {
+
+        background:
+          #fff8fa !important;
+
+        border-left:
+          4px solid
+          #8f3f5b !important;
+
+      }
+
+
+      .aviso {
+
+        background:
+          #fff9e8 !important;
+
+        break-inside:
+          avoid;
+
+      }
+
+
+      /* Esconde controles no documento */
+
+      .acoes,
+      footer,
+      .toast {
+
+        display:
+          none !important;
+
+      }
+
+
+      /* Evita quebra ruim */
+
+      .campo,
+      .patient-highlight,
+      .resumo-box {
+
+        break-inside:
+          avoid;
+
+      }
+
+
+      /* Título específico do documento */
+
+      .page-title::after {
+
+        background:
+          #d96b91 !important;
+
       }
 
     }
 
   </style>
 
-  <link rel="stylesheet" href="css/sentinela.css">
-  <link rel="icon" type="image/svg+xml" href="img/sentinela-logo.svg">
 </head>
 
 
 <body class="app-page">
 
-<aside class="sentinela-sidebar" aria-label="Navegação principal">
-  <div class="sentinela-brand">
-    <div class="sentinela-mark">✚</div>
-    <div><strong>SENTINELA</strong><span>Healthcare</span></div>
-  </div>
-  <nav class="sentinela-nav">
-    <a href="atendimento.html" class=""><span class="nav-icon">＋</span><span>Atendimento</span></a>
-    <a href="triagem.html" class=""><span class="nav-icon">◉</span><span>Triagem</span></a>
-    <a href="medico.html" class=""><span class="nav-icon">✚</span><span>Painel médico</span></a>
-    <a href="medicacoes.html" class=""><span class="nav-icon">⌁</span><span>Farmácia</span></a>
-    <a href="alta.html" class="active"><span class="nav-icon">✓</span><span>Alta</span></a>
-  </nav>
-  <div class="sentinela-side-footer">Ambiente clínico · Sentinela<br>Interface segura e organizada</div>
-</aside>
+
+  <!-- =====================================================
+       SIDEBAR
+  ===================================================== -->
+
+  <aside
+    class="sentinela-sidebar"
+    aria-label="Navegação principal"
+  >
+
+    <div class="sentinela-brand">
+
+      <div class="sentinela-mark">
+        ✚
+      </div>
+
+      <div>
+        <strong>SENTINELA</strong>
+        <span>Healthcare</span>
+      </div>
+
+    </div>
 
 
+    <nav class="sentinela-nav">
 
-  <!-- =========================
+      <a href="atendimento.html">
+        <span class="nav-icon">＋</span>
+        <span>Atendimento</span>
+      </a>
+
+      <a href="triagem.html">
+        <span class="nav-icon">◉</span>
+        <span>Triagem</span>
+      </a>
+
+      <a href="medico.html">
+        <span class="nav-icon">✚</span>
+        <span>Painel médico</span>
+      </a>
+
+      <a href="medicacoes.html">
+        <span class="nav-icon">⌁</span>
+        <span>Farmácia</span>
+      </a>
+
+      <a href="alta.html" class="active">
+        <span class="nav-icon">✓</span>
+        <span>Alta</span>
+      </a>
+
+    </nav>
+
+
+    <div class="sentinela-side-footer">
+
+      Ambiente clínico · Sentinela
+      <br>
+      Interface segura e organizada
+
+    </div>
+
+  </aside>
+
+
+  <!-- =====================================================
        HEADER
-  ========================= -->
+  ===================================================== -->
 
   <header>
 
     <div class="logo">
 
-      <div class="logo-icon" aria-label="Sentinela"></div>
+      <div
+        class="logo-icon"
+        aria-label="Sentinela"
+      ></div>
 
       <div>
 
@@ -1201,13 +2120,12 @@
   </header>
 
 
+  <!-- =====================================================
+       CONTEÚDO
+  ===================================================== -->
 
   <main class="container">
 
-
-    <!-- =========================
-         TÍTULO
-    ========================= -->
 
     <div class="page-title">
 
@@ -1216,16 +2134,15 @@
       </h2>
 
       <p>
-        Registro e emissão das informações referentes à alta do paciente.
+        Registro, conferência e emissão das informações referentes à alta do paciente.
       </p>
 
     </div>
 
 
-
-    <!-- =========================
-         PACIENTE ESCOLHIDO PELO MÉDICO
-    ========================= -->
+    <!-- =====================================================
+         PACIENTE SELECIONADO
+    ===================================================== -->
 
     <section class="paciente-selecionado">
 
@@ -1256,10 +2173,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          IDENTIFICAÇÃO
-    ========================= -->
+    ===================================================== -->
 
     <section class="card">
 
@@ -1282,7 +2198,6 @@
         </div>
 
       </div>
-
 
 
       <div class="patient-highlight">
@@ -1322,7 +2237,6 @@
       </div>
 
 
-
       <div class="grid">
 
 
@@ -1342,7 +2256,6 @@
         </div>
 
 
-
         <div class="campo">
 
           <label for="prontuario">
@@ -1359,7 +2272,6 @@
         </div>
 
 
-
         <div class="campo">
 
           <label for="documento">
@@ -1374,7 +2286,6 @@
           >
 
         </div>
-
 
 
         <div class="campo">
@@ -1395,10 +2306,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          DADOS DA ALTA
-    ========================= -->
+    ===================================================== -->
 
     <section class="card">
 
@@ -1423,7 +2333,6 @@
       </div>
 
 
-
       <div class="grid-3">
 
 
@@ -1441,7 +2350,6 @@
         </div>
 
 
-
         <div class="campo">
 
           <label for="horaAlta">
@@ -1454,7 +2362,6 @@
           >
 
         </div>
-
 
 
         <div class="campo">
@@ -1472,7 +2379,6 @@
         </div>
 
       </div>
-
 
 
       <br>
@@ -1511,7 +2417,6 @@
         </div>
 
 
-
         <div class="alta-option">
 
           <input
@@ -1534,7 +2439,6 @@
           </label>
 
         </div>
-
 
 
         <div class="alta-option">
@@ -1565,10 +2469,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          RESUMO CLÍNICO
-    ========================= -->
+    ===================================================== -->
 
     <section class="card">
 
@@ -1593,7 +2496,6 @@
       </div>
 
 
-
       <div class="grid">
 
 
@@ -1609,7 +2511,6 @@
           ></textarea>
 
         </div>
-
 
 
         <div class="campo full">
@@ -1630,10 +2531,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          ORIENTAÇÕES
-    ========================= -->
+    ===================================================== -->
 
     <section class="card">
 
@@ -1658,7 +2558,6 @@
       </div>
 
 
-
       <div class="grid">
 
 
@@ -1676,7 +2575,6 @@
         </div>
 
 
-
         <div class="campo">
 
           <label for="retorno">
@@ -1690,7 +2588,6 @@
           >
 
         </div>
-
 
 
         <div class="campo">
@@ -1712,10 +2609,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          OBSERVAÇÕES
-    ========================= -->
+    ===================================================== -->
 
     <section class="card">
 
@@ -1740,7 +2636,6 @@
       </div>
 
 
-
       <div class="campo">
 
         <label for="observacoes">
@@ -1755,11 +2650,10 @@
       </div>
 
 
-
       <div class="resumo-box">
 
         <strong>
-          Resumo da emissão:
+          Resumo da emissão
         </strong>
 
         <br>
@@ -1773,10 +2667,9 @@
     </section>
 
 
-
-    <!-- =========================
+    <!-- =====================================================
          AVISO
-    ========================= -->
+    ===================================================== -->
 
     <div class="aviso">
 
@@ -1798,16 +2691,17 @@
     </div>
 
 
-
-    <!-- =========================
-         BOTÕES
-    ========================= -->
+    <!-- =====================================================
+         AÇÕES
+    ===================================================== -->
 
     <div class="acoes">
+
 
       <button
         class="btn-secondary"
         onclick="limparFormulario()"
+        type="button"
       >
         ↺ Limpar
       </button>
@@ -1816,31 +2710,38 @@
       <button
         class="btn-pdf"
         onclick="baixarPDF()"
+        type="button"
       >
-        ↓ Baixar PDF
+        ↓ Salvar PDF
       </button>
 
 
       <button
         class="btn-print"
         onclick="imprimirAlta()"
+        type="button"
       >
-        🖨 Imprimir / Print
+        🖨 Imprimir Alta
       </button>
 
 
       <button
         class="btn-save"
         onclick="salvarAlta()"
+        type="button"
       >
         ✓ Salvar Alta
       </button>
+
 
     </div>
 
   </main>
 
 
+  <!-- =====================================================
+       FOOTER
+  ===================================================== -->
 
   <footer>
 
@@ -1853,8 +2754,9 @@
   </footer>
 
 
-
-  <!-- TOAST -->
+  <!-- =====================================================
+       TOAST
+  ===================================================== -->
 
   <div
     class="toast"
@@ -1862,7 +2764,6 @@
   >
     ✓ Alta salva com sucesso!
   </div>
-
 
 
   <script>
@@ -1878,11 +2779,6 @@
           "pacienteAlta"
         );
 
-
-      /*
-        Se não existir paciente selecionado,
-        mantém a página normal.
-      */
 
       if (!dados) {
 
@@ -1906,11 +2802,6 @@
           paciente
         );
 
-
-        /*
-          ACEITA VÁRIOS NOMES DE CAMPO
-          PARA FUNCIONAR COM SUA API.
-        */
 
         const nome =
           paciente.nome ||
@@ -1953,19 +2844,11 @@
           "";
 
 
-        /*
-          NOME NO TOPO
-        */
-
         document.getElementById(
           "nomePacienteTopo"
         ).textContent =
           nome;
 
-
-        /*
-          INFORMAÇÕES EXTRAS NO TOPO
-        */
 
         let infoTopo =
           "Paciente selecionado pelo Painel Médico";
@@ -1985,10 +2868,6 @@
         ).textContent =
           infoTopo;
 
-
-        /*
-          GERA INICIAIS DO PACIENTE
-        */
 
         const partesNome =
           nome
@@ -2035,19 +2914,11 @@
           iniciais;
 
 
-        /*
-          PREENCHER NOME
-        */
-
         document.getElementById(
           "nomePaciente"
         ).value =
           nome;
 
-
-        /*
-          PREENCHER DOCUMENTO
-        */
 
         document.getElementById(
           "documento"
@@ -2055,27 +2926,14 @@
           documento;
 
 
-        /*
-          PREENCHER PRONTUÁRIO
-        */
-
         document.getElementById(
           "prontuario"
         ).value =
           prontuario;
 
 
-        /*
-          ATUALIZA CARD
-        */
-
         atualizarPaciente();
 
-
-        /*
-          SE EXISTIR DIAGNÓSTICO
-          NA TRIAGEM, COLOCA NO CAMPO.
-        */
 
         if (diagnostico) {
 
@@ -2087,11 +2945,6 @@
         }
 
 
-        /*
-          SE EXISTIR OBSERVAÇÃO
-          NA TRIAGEM, COLOCA NO RESUMO.
-        */
-
         if (observacao) {
 
           document.getElementById(
@@ -2101,11 +2954,6 @@
 
         }
 
-
-        /*
-          MOSTRA ALERTA DE ALERGIA
-          NO CAMPO DE OBSERVAÇÕES.
-        */
 
         if (alergia) {
 
@@ -2117,11 +2965,6 @@
 
         }
 
-
-        /*
-          Se houver sintoma e não houver
-          resumo, coloca o sintoma no resumo.
-        */
 
         if (
           sintoma &&
@@ -2150,9 +2993,8 @@
     }
 
 
-
     /* ==================================================
-       ATUALIZAR CARD
+       ATUALIZAR CARD DO PACIENTE
     ================================================== */
 
     function atualizarPaciente() {
@@ -2203,7 +3045,6 @@
         "Nenhum paciente selecionado";
 
     }
-
 
 
     /* ==================================================
@@ -2323,7 +3164,6 @@
       );
 
     }
-
 
 
     /* ==================================================
@@ -2454,9 +3294,10 @@
     }
 
 
-
     /* ==================================================
-       PDF
+       SALVAR COMO PDF
+       Usa a impressão nativa do navegador.
+       O usuário poderá escolher "Salvar como PDF".
     ================================================== */
 
     function baixarPDF() {
@@ -2478,22 +3319,46 @@
       }
 
 
-      window.print();
+      mostrarToast(
+        "Preparando documento para PDF..."
+      );
+
+
+      setTimeout(() => {
+
+        window.print();
+
+      }, 350);
 
     }
 
 
-
     /* ==================================================
-       IMPRIMIR
+       IMPRIMIR ALTA
     ================================================== */
 
     function imprimirAlta() {
 
+      const nome =
+        document.getElementById(
+          "nomePaciente"
+        ).value.trim();
+
+
+      if (!nome) {
+
+        alert(
+          "Selecione um paciente antes de imprimir a alta."
+        );
+
+        return;
+
+      }
+
+
       window.print();
 
     }
-
 
 
     /* ==================================================
@@ -2544,7 +3409,6 @@
     }
 
 
-
     /* ==================================================
        TOAST
     ================================================== */
@@ -2580,7 +3444,6 @@
       );
 
     }
-
 
 
     /* ==================================================
@@ -2647,7 +3510,6 @@
     }
 
 
-
     /* ==================================================
        INICIALIZAÇÃO
     ================================================== */
@@ -2656,18 +3518,8 @@
       "DOMContentLoaded",
       () => {
 
-        /*
-          Primeiro carrega o paciente
-          escolhido pelo médico.
-        */
-
         carregarPacienteSelecionado();
 
-
-        /*
-          Depois carrega uma alta salva,
-          caso exista.
-        */
 
         if (
           !localStorage.getItem(
@@ -2679,10 +3531,6 @@
 
         }
 
-
-        /*
-          Data e hora atuais.
-        */
 
         if (
           !document.getElementById(
